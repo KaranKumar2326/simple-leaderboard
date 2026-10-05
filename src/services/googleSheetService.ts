@@ -31,13 +31,13 @@ export interface StoredSettings {
 }
 
 export const DEFAULT_SETTINGS: StoredSettings = {
-  sourceType: 'demo',
-  sheetId: '1QDany--BNFoCEfbBhWJdY_WJInNIPLDNfLV-c44Vg24',
+  sourceType: (import.meta.env.VITE_SOURCE_TYPE as 'demo' | 'live') || 'demo',
+  sheetId: import.meta.env.VITE_SHEET_ID || '',
   studentsTab: 'STUDENTS',
   testsTab: 'TESTS',
   resultsTab: 'TEST_RESULTS',
   prizesTab: 'PRIZES',
-  googleFormUrl: 'https://forms.google.com',
+  googleFormUrl: import.meta.env.VITE_GOOGLE_FORM_URL || 'https://forms.google.com',
   streakThresholdPercent: 80,
   championshipTotalTests: 15,
   provisionalMinTests: 3,
