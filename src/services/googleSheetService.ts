@@ -47,7 +47,13 @@ export function loadSettings(): StoredSettings {
   try {
     const raw = localStorage.getItem(CACHE_KEY_SETTINGS);
     if (raw) {
-      return { ...DEFAULT_SETTINGS, ...JSON.parse(raw) };
+      const saved = JSON.parse(raw);
+      const merged = { ...DEFAULT_SETTINGS, ...saved };
+      // Env vars always win for these critical settings so Vercel config is never ignored
+      if (import.meta.env.VITE_SOURCE_TYPE) merged.sourceType = import.meta.env.VITE_SOURCE_TYPE as 'demo' | 'live';
+      if (import.meta.env.VITE_SHEET_ID) merged.sheetId = import.meta.env.VITE_SHEET_ID;
+      if (import.meta.env.VITE_GOOGLE_FORM_URL) merged.googleFormUrl = import.meta.env.VITE_GOOGLE_FORM_URL;
+      return merged;
     }
   } catch (e) {
     console.error('Failed to load settings from localStorage:', e);
