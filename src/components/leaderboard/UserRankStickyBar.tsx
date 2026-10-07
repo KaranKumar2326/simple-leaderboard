@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Zap, ChevronUp, UserCheck, X } from 'lucide-react';
 import type { StudentStats } from '../../types/student';
 import { LiveScoreCounter } from './LiveScoreCounter';
+import { StudentAvatar } from '../common/StudentAvatar';
 
 interface UserRankStickyBarProps {
   currentUser: StudentStats | null;
@@ -47,9 +48,13 @@ export const UserRankStickyBar: React.FC<UserRankStickyBarProps> = ({
             className="flex items-center gap-3 cursor-pointer group flex-1 min-w-0"
           >
             <div className="relative flex-shrink-0">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-600 text-white font-mono font-bold text-sm flex items-center justify-center shadow-md shadow-indigo-500/20">
-                {currentUser.name.slice(0, 2).toUpperCase()}
-              </div>
+              <StudentAvatar
+                name={currentUser.name}
+                studentId={currentUser.studentId}
+                photoUrl={currentUser.photoUrl}
+                size="md"
+                className="ring-2 ring-indigo-500/30"
+              />
               <span className="absolute -top-1 -right-1 bg-stone-900 text-white font-mono text-[9px] font-bold px-1.5 py-0.2 rounded-full border border-white">
                 #{currentUser.rank}
               </span>

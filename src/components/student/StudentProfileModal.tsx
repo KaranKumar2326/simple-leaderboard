@@ -10,6 +10,7 @@ import {
   CartesianGrid,
 } from 'recharts';
 import type { StudentStats } from '../../types/student';
+import { StudentAvatar } from '../common/StudentAvatar';
 
 interface StudentProfileModalProps {
   student: StudentStats | null;
@@ -47,26 +48,35 @@ export const StudentProfileModal: React.FC<StudentProfileModalProps> = ({ studen
           </button>
 
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-            <div>
-              <div className="flex items-center gap-2 mb-1">
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-stone-500">
-                  Player Dossier · Class {student.className}-{student.section}
-                </span>
-                {student.isProvisional && (
-                  <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-stone-200 text-stone-700">
-                    Provisional
+            <div className="flex items-center gap-4">
+              <StudentAvatar
+                name={student.name}
+                studentId={student.studentId}
+                photoUrl={student.photoUrl}
+                size="xl"
+                className="shadow-lg border-2 border-white ring-2 ring-stone-200"
+              />
+              <div>
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="text-xs font-mono font-bold uppercase tracking-wider text-stone-500">
+                    Player Dossier · Class {student.className}-{student.section}
                   </span>
-                )}
-              </div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-stone-950 uppercase">
-                {student.name}
-              </h2>
-              <div className="flex items-center gap-3 text-xs font-mono text-stone-500 mt-1">
-                <span>Rank #{rankFormatted}</span>
-                <span>·</span>
-                <span>ID: {student.studentId}</span>
-                <span>·</span>
-                <span>Trend: {student.rankMovement.formattedText}</span>
+                  {student.isProvisional && (
+                    <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-stone-200 text-stone-700">
+                      Provisional
+                    </span>
+                  )}
+                </div>
+                <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-stone-950 uppercase">
+                  {student.name}
+                </h2>
+                <div className="flex items-center gap-3 text-xs font-mono text-stone-500 mt-1">
+                  <span>Rank #{rankFormatted}</span>
+                  <span>·</span>
+                  <span>ID: {student.studentId}</span>
+                  <span>·</span>
+                  <span>Trend: {student.rankMovement.formattedText}</span>
+                </div>
               </div>
             </div>
 

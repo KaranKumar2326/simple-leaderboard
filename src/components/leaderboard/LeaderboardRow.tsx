@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowUp, ArrowDown, Minus, ArrowRight, Flame } from 'lucide-react';
 import type { StudentStats } from '../../types/student';
 import { LiveScoreCounter } from './LiveScoreCounter';
+import { StudentAvatar } from '../common/StudentAvatar';
 
 interface LeaderboardRowProps {
   student: StudentStats;
@@ -87,9 +88,12 @@ export const LeaderboardRow: React.FC<LeaderboardRowProps> = ({
       {/* Student Name & Avatar */}
       <td className="py-3.5 px-4">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg bg-stone-900 text-white font-mono font-bold text-xs flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
-            {student.name.slice(0, 2).toUpperCase()}
-          </div>
+          <StudentAvatar
+            name={student.name}
+            studentId={student.studentId}
+            photoUrl={student.photoUrl}
+            size="sm"
+          />
           <div>
             <div className="flex items-center gap-2">
               <span className="font-bold text-stone-900 group-hover:text-indigo-600 transition-colors">

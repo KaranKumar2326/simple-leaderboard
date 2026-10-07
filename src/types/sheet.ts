@@ -12,6 +12,12 @@ export interface RawStudentRow {
   section?: string;
   'Active'?: string | boolean;
   active?: string | boolean;
+  'Photo'?: string;
+  'Photo URL'?: string;
+  photo?: string;
+  photo_url?: string;
+  image?: string;
+  avatar?: string;
 }
 
 export type TestDifficulty = 'Easy' | 'Medium' | 'Hard';

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowUp, ArrowDown, Minus, ChevronRight, Flame } from 'lucide-react';
 import type { StudentStats } from '../../types/student';
 import { LiveScoreCounter } from './LiveScoreCounter';
+import { StudentAvatar } from '../common/StudentAvatar';
 
 interface LeaderboardCardsProps {
   students: StudentStats[];
@@ -78,7 +79,7 @@ export const LeaderboardCards: React.FC<LeaderboardCardsProps> = ({
             {/* Top row: Rank, Name, Score */}
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-3 min-w-0">
-                <div className={`w-9 h-9 rounded-xl font-mono text-xs font-black flex items-center justify-center flex-shrink-0 ${
+                <div className={`w-8 h-8 rounded-xl font-mono text-xs font-black flex items-center justify-center flex-shrink-0 ${
                   student.rank === 1
                     ? 'bg-amber-100 text-amber-900 border border-amber-300'
                     : student.rank === 2
@@ -89,6 +90,13 @@ export const LeaderboardCards: React.FC<LeaderboardCardsProps> = ({
                 }`}>
                   {rankFormatted}
                 </div>
+
+                <StudentAvatar
+                  name={student.name}
+                  studentId={student.studentId}
+                  photoUrl={student.photoUrl}
+                  size="sm"
+                />
 
                 <div className="min-w-0">
                   <h3 className="font-bold text-stone-950 text-sm truncate">

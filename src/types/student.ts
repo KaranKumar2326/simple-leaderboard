@@ -6,6 +6,7 @@ export interface StudentBase {
   className: string;
   section: string;
   active: boolean;
+  photoUrl?: string;
 }
 
 export type RankMovementDirection = 'UP' | 'DOWN' | 'SAME' | 'NEW';

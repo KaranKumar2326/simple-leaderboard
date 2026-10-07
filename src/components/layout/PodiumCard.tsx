@@ -4,6 +4,7 @@ import confetti from 'canvas-confetti';
 import { Crown, Flame, ArrowUpRight, Award, Sparkles } from 'lucide-react';
 import type { StudentStats } from '../../types/student';
 import { LiveScoreCounter } from '../leaderboard/LiveScoreCounter';
+import { StudentAvatar } from '../common/StudentAvatar';
 
 interface PodiumCardProps {
   student: StudentStats;
@@ -102,10 +103,14 @@ export const PodiumCard: React.FC<PodiumCardProps> = ({ student, place, onSelect
 
       {/* Avatar & Student Name */}
       <div className="my-5">
-        <div className="flex items-center gap-3">
-          <div className="w-12 h-12 rounded-2xl bg-stone-900 text-white font-mono font-bold text-base flex items-center justify-center shadow-inner">
-            {student.name.slice(0, 2).toUpperCase()}
-          </div>
+        <div className="flex items-center gap-3.5">
+          <StudentAvatar
+            name={student.name}
+            studentId={student.studentId}
+            photoUrl={student.photoUrl}
+            size="lg"
+            className="ring-2 ring-white shadow-md"
+          />
           <div className="min-w-0">
             <h3 className="text-lg sm:text-xl font-extrabold text-stone-950 truncate group-hover:text-indigo-600 transition-colors tracking-tight">
               {student.name}

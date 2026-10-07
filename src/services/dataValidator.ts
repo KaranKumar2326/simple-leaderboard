@@ -29,6 +29,7 @@ export function validateAndSanitize(
     const section = String(row['Section'] || row.section || '').trim().toUpperCase();
     const activeRaw = String(row['Active'] || row.active || 'TRUE').trim().toUpperCase();
     const active = activeRaw === 'TRUE' || activeRaw === '1' || activeRaw === 'YES';
+    const photoUrl = String(row['Photo'] || row['Photo URL'] || row.photo || row.photo_url || row.image || row.avatar || '').trim() || undefined;
 
     if (!studentId) {
       issues.push({
@@ -54,6 +55,7 @@ export function validateAndSanitize(
       className: className || 'General',
       section: section || 'A',
       active,
+      photoUrl,
     });
   });
 
