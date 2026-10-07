@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Sparkles, Trophy } from 'lucide-react';
 import type { StudentStats } from '../../types/student';
 import { PodiumCard } from './PodiumCard';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Flame, TrendingUp, Award, Swords, Sparkles, ArrowRight } from 'lucide-react';
+import { Flame, TrendingUp, Award, Swords, Sparkles } from 'lucide-react';
 import type { StudentStats } from '../../types/student';
 import { useChampionship } from '../../context/ChampionshipContext';
 import { LiveScoreCounter } from '../leaderboard/LiveScoreCounter';
