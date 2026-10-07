@@ -74,30 +74,30 @@ export const ChampionshipHub: React.FC<ChampionshipHubProps> = ({ onSelectStuden
       {/* Current Leaders & Tiers Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
         {/* Championship Tier: Top 3 */}
-        <div className="bg-white border border-stone-200 rounded-lg p-5">
-          <div className="flex items-center justify-between pb-3 border-b border-stone-100 mb-3">
-            <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-amber-800">
+        <div className="bg-white border border-stone-200 rounded-2xl p-6 shadow-sm hover:border-amber-300 transition-colors">
+          <div className="flex items-center justify-between pb-3.5 border-b border-stone-100 mb-4">
+            <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-amber-800 bg-amber-50 px-2.5 py-1 rounded-lg border border-amber-200">
               Gold Tier (Top 3)
             </span>
-            <span className="text-[10px] font-mono text-stone-400">Podium</span>
+            <span className="text-[10px] font-mono font-bold text-stone-400">PODIUM</span>
           </div>
 
-          <div className="space-y-2">
+          <div className="space-y-2.5">
             {classStudents.slice(0, 3).map((st, idx) => (
               <div
                 key={st.studentId}
                 onClick={() => onSelectStudent(st)}
-                className="group cursor-pointer flex items-center justify-between p-2 rounded hover:bg-stone-50 transition-colors"
+                className="group cursor-pointer flex items-center justify-between p-2.5 rounded-xl hover:bg-amber-50/40 transition-colors"
               >
-                <div className="flex items-center gap-2.5">
-                  <span className="font-mono text-xs font-bold text-stone-400">
+                <div className="flex items-center gap-3">
+                  <span className="font-mono text-xs font-black text-amber-900 bg-amber-100 border border-amber-300 w-6 h-6 rounded-lg flex items-center justify-center">
                     0{idx + 1}
                   </span>
-                  <span className="text-xs font-semibold text-stone-900 group-hover:underline">
+                  <span className="text-xs font-bold text-stone-900 group-hover:text-amber-800 transition-colors">
                     {st.name}
                   </span>
                 </div>
-                <span className="font-mono text-xs font-bold text-stone-900 tabular-nums">
+                <span className="font-mono text-xs font-black text-stone-900 tabular-nums">
                   {st.overallAverage.toFixed(1)}%
                 </span>
               </div>
@@ -106,30 +106,30 @@ export const ChampionshipHub: React.FC<ChampionshipHubProps> = ({ onSelectStuden
         </div>
 
         {/* Honors Tier: Top 4-10 */}
-        <div className="bg-white border border-stone-200 rounded-lg p-5">
-          <div className="flex items-center justify-between pb-3 border-b border-stone-100 mb-3">
-            <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-stone-700">
+        <div className="bg-white border border-stone-200 rounded-2xl p-6 shadow-sm hover:border-indigo-200 transition-colors">
+          <div className="flex items-center justify-between pb-3.5 border-b border-stone-100 mb-4">
+            <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-indigo-700 bg-indigo-50 px-2.5 py-1 rounded-lg border border-indigo-200">
               Honors Tier (Rank 4—10)
             </span>
-            <span className="text-[10px] font-mono text-stone-400">Contenders</span>
+            <span className="text-[10px] font-mono font-bold text-stone-400">CONTENDERS</span>
           </div>
 
-          <div className="space-y-1.5">
+          <div className="space-y-2">
             {classStudents.slice(3, 8).map((st) => (
               <div
                 key={st.studentId}
                 onClick={() => onSelectStudent(st)}
-                className="group cursor-pointer flex items-center justify-between p-1.5 rounded hover:bg-stone-50 transition-colors"
+                className="group cursor-pointer flex items-center justify-between p-2 rounded-xl hover:bg-stone-50 transition-colors"
               >
-                <div className="flex items-center gap-2.5">
-                  <span className="font-mono text-[11px] text-stone-400">
+                <div className="flex items-center gap-3">
+                  <span className="font-mono text-[11px] font-bold text-stone-500 bg-stone-100 w-6 h-6 rounded-lg flex items-center justify-center">
                     {st.rank < 10 ? `0${st.rank}` : st.rank}
                   </span>
-                  <span className="text-xs font-medium text-stone-800 group-hover:underline">
+                  <span className="text-xs font-semibold text-stone-800 group-hover:text-indigo-600 transition-colors">
                     {st.name}
                   </span>
                 </div>
-                <span className="font-mono text-xs text-stone-600 tabular-nums">
+                <span className="font-mono text-xs font-semibold text-stone-600 tabular-nums">
                   {st.overallAverage.toFixed(1)}%
                 </span>
               </div>
@@ -138,26 +138,26 @@ export const ChampionshipHub: React.FC<ChampionshipHubProps> = ({ onSelectStuden
         </div>
 
         {/* Merit Tier: Rank 11+ */}
-        <div className="bg-white border border-stone-200 rounded-lg p-5">
-          <div className="flex items-center justify-between pb-3 border-b border-stone-100 mb-3">
-            <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-stone-500">
+        <div className="bg-white border border-stone-200 rounded-2xl p-6 shadow-sm hover:border-stone-300 transition-colors">
+          <div className="flex items-center justify-between pb-3.5 border-b border-stone-100 mb-4">
+            <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-stone-600 bg-stone-100 px-2.5 py-1 rounded-lg border border-stone-200">
               Rising Tier
             </span>
-            <span className="text-[10px] font-mono text-stone-400">Chasing Pack</span>
+            <span className="text-[10px] font-mono font-bold text-stone-400">CHASING PACK</span>
           </div>
 
-          <div className="space-y-1.5">
+          <div className="space-y-2">
             {classStudents.slice(8, 13).map((st) => (
               <div
                 key={st.studentId}
                 onClick={() => onSelectStudent(st)}
-                className="group cursor-pointer flex items-center justify-between p-1.5 rounded hover:bg-stone-50 transition-colors"
+                className="group cursor-pointer flex items-center justify-between p-2 rounded-xl hover:bg-stone-50 transition-colors"
               >
-                <div className="flex items-center gap-2.5">
-                  <span className="font-mono text-[11px] text-stone-400">
+                <div className="flex items-center gap-3">
+                  <span className="font-mono text-[11px] font-medium text-stone-400 bg-stone-50 w-6 h-6 rounded-lg flex items-center justify-center">
                     {st.rank < 10 ? `0${st.rank}` : st.rank}
                   </span>
-                  <span className="text-xs font-medium text-stone-700 group-hover:underline">
+                  <span className="text-xs font-medium text-stone-700 group-hover:text-stone-900 transition-colors">
                     {st.name}
                   </span>
                 </div>
